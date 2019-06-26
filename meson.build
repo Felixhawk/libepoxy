@@ -163,11 +163,12 @@ endif
 
 # Dependencies
 dl_dep = cc.find_library('dl', required: false)
-gl_dep = dependency('gl', required: false)
-egl_dep = dependency('egl', required: false)
+gl_dep = cc.find_library('libGL', required: false)
+egl_dep = cc.find_library('libEGL', required: false)
+
 
 # Optional dependencies for tests
-x11_dep = dependency('x11', required: false)
+x11_dep = cc.find_library('libX11', required: false)
 
 # GLES v2 and v1 may have pkg-config files, courtesy of downstream
 # packagers; let's check those first, and fall back to find_library()
